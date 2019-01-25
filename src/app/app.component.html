@@ -1,0 +1,15 @@
+<input [(ngModel)]="user.userName" type="text">{{name}}
+
+<button (click)="save()">save</button>
+
+<table>
+  <th>id</th><th>name</th><th>Email<th>
+    <tbody>
+<tr *ngFor="let us of userList">
+<td>{{us.id}}</td>
+<td>{{us.userName}}</td>
+<td>{{us.emailId}}</td>
+
+</tr>
+</tbody>
+</table>
