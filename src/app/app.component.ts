@@ -1,39 +1,24 @@
-import { Component } from '@angular/core';
-import { UserService } from './user.service';
-import { User } from './user';
-
+import {Component, OnChanges,OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy,
+  HostListener
+} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  title = 'Angular';
+  user = { "userName": "", "password": "" };
 
-  user = new User();
+  constructor(private router: Router, private auth: AuthGuard) {
 
-  userList :any;
-  test:any;
-  name:any;
+  }
 
-  constructor(private userService: UserService) { }
-   ngOnInit():any {
-   this.onload();
-   }
-   onload(){
-    this.userService.getData().subscribe(data=>{
-      this.userList = data.hai;
+  ngOnInit() {
 
-      if (this.userList) {
-        this.test = 'murugan';
-      }
-      console.log(this.userList)
-    });
-   }
-
-   save(){
-     this.userService.getsave(this.user).subscribe(data=>{
-      this.onload();
-     });
-     
-   }
+  }
 }

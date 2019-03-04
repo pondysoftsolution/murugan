@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container row">
+  <div class="col-sm-4">
+    <form #loginForm="ngForm">
+      <div class="form-group">UserName:<input type="text" [(ngModel)]="user.userName" name="userName" class="form-control"
+          required minlength="4" #name="ngModel">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">Password:<input type="password" [(ngModel)]="user.password" name="password"
+          class="form-control">
+      </div>
+    </form>
+    <button type="button" class="btn btn-success" (click)="submit(loginForm)">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-success pull-right" routerLink="/register">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button"
+      class="btn btn-danger">Clear</button>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div id="slider">
+</div>
+<h1 class="title" style="display:none">
+  {{title}}
+</h1>
+<button (click)="toggleTitle()"> clickhere</button>
+<router-outlet></router-outlet> -->
